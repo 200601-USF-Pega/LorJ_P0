@@ -1,5 +1,6 @@
 package ui;
 import dao.ConnectionManager;
+import dao.IPokemonRepo;
 import dao.PokemonRepoDB;
 import exceptions.InvalidInputException;
 import exceptions.TeamTransactionException;
@@ -16,7 +17,7 @@ public class MenuConsole implements Menu
 {
 	final static Scanner scan = new Scanner(System.in);
 	private PokemonService ps;
-	private PokemonRepoDB repo;
+	private IPokemonRepo repo;
 
 	public MenuConsole(ConnectionManager cm)
 	{

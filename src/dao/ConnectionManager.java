@@ -35,7 +35,7 @@ public class ConnectionManager
 	{
 		try
 		{
-			connection.close();
+			this.connection.close();
 		}
 		catch(Exception e)
 		{

@@ -243,15 +243,6 @@ public class PokemonRepoDB implements IPokemonRepo
 
     }
 
-    public boolean updatePokemon(Pokemon pokemon)
-    {
-        //update statement
-        //save result
-        //if >0 then success
-        //return executeUpdate("...") > 0;
-        return true;
-    }
-
     public void displayTrainerPokemon(Trainer t)
     {
         try

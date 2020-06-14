@@ -1,4 +1,5 @@
 import dao.ConnectionManager;
+import models.Pokemon;
 import models.Trainer;
 import ui.*;
 
@@ -15,6 +16,7 @@ public class Driver
 		{
 			menu.mainMenu(t);
 		}
+		cm.finalize();
 	}
 	
 }
