@@ -1,0 +1,3 @@
+hostname=jdbc:postgresql://ruby.db.elephantsql.com:5432/gaiocigm
+username=gaiocigm
+password=ukZBC3oShtRoBRyFxFo0DnHvHUcJD9Kl
