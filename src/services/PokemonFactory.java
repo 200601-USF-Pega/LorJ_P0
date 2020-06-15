@@ -84,7 +84,7 @@ public class PokemonFactory {
             {
                 pokemon.setShiny(true);
             }
-            pokemon.setOT(t.getId());
+            pokemon.setOT(t.getID());
             System.out.println("Pokemon successfully created!");
             return pokemon;
         }

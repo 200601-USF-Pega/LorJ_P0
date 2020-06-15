@@ -21,7 +21,7 @@ public class Trainer
 		this.name = name;
 	}
 
-	public int getId()
+	public int getID()
 	{
 		return id;
 	}

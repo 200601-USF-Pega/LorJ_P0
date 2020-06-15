@@ -1,7 +1,5 @@
 package ui;
-import dao.ConnectionManager;
-import dao.IPokemonRepo;
-import dao.PokemonRepoDB;
+import dao.*;
 import exceptions.InvalidInputException;
 import exceptions.TeamTransactionException;
 import models.Pokemon;
@@ -10,6 +8,7 @@ import services.PokemonFactory;
 import services.PokemonService;
 
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 // Responsible for menu navigation
@@ -18,11 +17,13 @@ public class MenuConsole implements Menu
 	final static Scanner scan = new Scanner(System.in);
 	private PokemonService ps;
 	private IPokemonRepo repo;
+	private ITrainerRepo trainerRepo;
 
 	public MenuConsole(ConnectionManager cm)
 	{
 		ps = new PokemonService();
 		repo = new PokemonRepoDB(cm);
+		trainerRepo = new TrainerRepoDB(cm);
 	}
 	
 	public void mainMenu(Trainer t)
@@ -30,19 +31,25 @@ public class MenuConsole implements Menu
 		int input = 0;
 		while(input != 5)
 		{
-			System.out.println("====================\n[1] BILL's PC\n[2] " + t.getName() + "'s PC\n[3] PROF.OAK's PC\n[4] View Team\n[5] LOG OFF");
+			System.out.println("====================\n[1] BILL's PC\n[2] " + t.getName() + "'s PC\n[3] PROF.OAK's PC\n[4] VIEW TEAM\n[5] LOG OFF");
 			try
 			{
 				input = scan.nextInt();
+				scan.nextLine();
 				if(input < 1 || input > 5)
 				{
 					throw new InvalidInputException();
 				}
 			}
-			catch(Exception e)
+			catch(InputMismatchException e)
 			{
 				System.out.println("Please input a valid menu option.");
-				input = 0; // Reset
+				scan.next();
+			}
+			catch(InvalidInputException e)
+			{
+				System.out.println("Please input a valid menu option.");
+				input = 0;
 			}
 			
 			switch(input)
@@ -79,7 +86,7 @@ public class MenuConsole implements Menu
 		int input = 0;
 		while(input != 5)
 		{
-			System.out.print("[1] Withdraw\n[2] Deposit\n[3] Release\n[4] Create Pokemon\n[5] Back\n====================\nWhat? ");
+			System.out.print("[1] WITHDRAW\n[2] DEPOSIT\n[3] RELEASE\n[4] CREATE\n[5] BACK\n====================\nWhat? ");
 			try
 			{
 				input = scan.nextInt();
@@ -88,7 +95,12 @@ public class MenuConsole implements Menu
 					throw new InvalidInputException();
 				}
 			}
-			catch(Exception e)
+			catch(InputMismatchException e)
+			{
+				System.out.println("Please input a valid menu option.");
+				scan.next();
+			}
+			catch(InvalidInputException e)
 			{
 				System.out.println("Please input a valid menu option.");
 				input = 0; // Reset
@@ -107,14 +119,14 @@ public class MenuConsole implements Menu
 				}
 				catch(InputMismatchException ime)
 				{
-					System.out.println("Please input a valid ID number.");
-					input = 0;
+					System.out.println("Invalid input.");
+					break;
 				}
 				catch(TeamTransactionException tte)
 				{
 					System.out.println("Your party is full.");
-					input = 0;
 				}
+				input = 0;
 				break;
 			case 2:
 				// Deposit
@@ -132,15 +144,29 @@ public class MenuConsole implements Menu
 				catch(InputMismatchException ime)
 				{
 					System.out.println("Invalid input.");
-					input = 0; // Reset
+					scan.next();
 				}
 				catch(TeamTransactionException tte)
 				{
 					System.out.println("Your party is empty.");
 				}
+				input = 0;
 				break;
 			case 3:
 				// Release
+				repo.displayTrainerPokemon(t);
+				System.out.print("Pick Pokemon by the [ID]: ");
+				try
+				{
+					input = scan.nextInt();
+					repo.removePokemon(input);
+				}
+				catch(InputMismatchException ime)
+				{
+					System.out.println("Invalid input.");
+					break;
+				}
+				input = 0;
 				break;
 			case 4:
 				Pokemon p = PokemonFactory.makePokemon(t);
@@ -154,6 +180,60 @@ public class MenuConsole implements Menu
 			}
 		}
 		
+	}
+
+	public void extendedMenu(Trainer t)
+	{
+		int input = 0;
+		while(input != 5)
+		{
+			System.out.println("====================\n[1] VIEW ALL POK" + '\u00C9' + "MON\n[2] REGISTER TRAINER\n[3] REMOVE TRAINER\n[4] VIEW TRAINERS\n[5] LOG OFF");
+			try
+			{
+				input = scan.nextInt();
+				scan.nextLine();
+				if(input < 1 || input > 5)
+				{
+					throw new InvalidInputException();
+				}
+			}
+			catch(InputMismatchException e)
+			{
+				System.out.println("Please input a valid menu option.");
+				scan.next();
+			}
+			catch(InvalidInputException e)
+			{
+				System.out.println("Please input a valid menu option.");
+				input = 0; // Reset
+			}
+			switch(input)
+			{
+			case 1:
+				List<Pokemon> list = repo.getAllPokemon();
+				for(Pokemon p : list)
+				{
+					System.out.println(p);
+				}
+				break;
+			case 2:
+				System.out.print("Trainer Name: ");
+				String name = scan.nextLine();
+				System.out.print("Password: ");
+				trainerRepo.addTrainer(name, scan.nextLine());
+				break;
+			case 3:
+				System.out.print("Trainer ID: ");
+				trainerRepo.deleteTrainer(scan.nextInt());
+				scan.nextLine();
+				break;
+			case 4:
+				trainerRepo.viewAllTrainers();
+				break;
+			default:
+				break;
+			}
+		}
 	}
 	
 }

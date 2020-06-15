@@ -1,5 +1,4 @@
 import dao.ConnectionManager;
-import models.Pokemon;
 import models.Trainer;
 import ui.*;
 
@@ -14,7 +13,14 @@ public class Driver
 		Trainer t = login.inputLogin(cm);
 		if(t != null)
 		{
-			menu.mainMenu(t);
+			if(t.getID() == 1)
+			{
+				menu.extendedMenu(t);
+			}
+			else
+			{
+				menu.mainMenu(t);
+			}
 		}
 		cm.finalize();
 	}

@@ -12,7 +12,7 @@ import java.util.List;
 public class PokemonRepoDB implements IPokemonRepo
 {
 
-    ConnectionManager cm;
+    private ConnectionManager cm;
 
     public PokemonRepoDB(ConnectionManager cm)
     {
@@ -96,6 +96,37 @@ public class PokemonRepoDB implements IPokemonRepo
         catch (SQLException e)
         {
             e.printStackTrace();
+        }
+    }
+
+    public void removePokemon(int id)
+    {
+        try
+        {
+            Statement s = cm.getConnection().createStatement();
+            s.execute("SELECT * FROM pokemon_moves WHERE p_id=" + id);
+            ResultSet rs = s.getResultSet();
+            int [] m_id = new int[4];
+            int i = 0;
+            while(rs.next())
+            {
+                m_id[i] = rs.getInt("move_id");
+                i++;
+            }
+
+            s.execute("DELETE FROM pokemon_moves WHERE p_id=" + id);
+            s.execute("DELETE FROM pokemon_table WHERE p_id=" + id);
+            for(i = 0; i < 4; i++)
+            {
+                if(m_id[i] != 0)
+                {
+                    s.execute("DELETE FROM moves_table WHERE move_id=" + m_id[i]);
+                }
+            }
+        }
+        catch(SQLException e)
+        {
+            e.getStackTrace();
         }
     }
 
@@ -248,7 +279,7 @@ public class PokemonRepoDB implements IPokemonRepo
         try
         {
             PreparedStatement ps = cm.getConnection().prepareStatement("SELECT * FROM pokemon_table WHERE ot=?");
-            ps.setInt(1, t.getId());
+            ps.setInt(1, t.getID());
             ps.executeQuery();
             ResultSet rs = ps.getResultSet();
             while(rs.next())
@@ -267,7 +298,6 @@ public class PokemonRepoDB implements IPokemonRepo
         }
     }
 
-    // idk if this work yet, for BILL
     public List<Pokemon> getAllPokemon()
     {
         List<Pokemon> result = new ArrayList<Pokemon>();
@@ -279,8 +309,15 @@ public class PokemonRepoDB implements IPokemonRepo
             while(rs.next())
             {
                 Pokemon p = new Pokemon();
-                p.setName(rs.getString("name"));
-                //p.set all values
+                p.setName(rs.getString("pokemon_name"));
+                p.setNickname(rs.getString("nickname"));
+                p.setLevel(rs.getInt("lvl"));
+                p.setAbility(rs.getString("ability"));
+                p.setItem(rs.getString("item"));
+                p.setNature(Natures.valueOf(rs.getString("nature")));
+                p.setGender(Genders.valueOf(rs.getString("gender")));
+                p.setShiny(rs.getBoolean("shiny"));
+                p.setOT(rs.getInt("ot"));
                 if(!result.contains(p))
                 {
                     result.add(p);
