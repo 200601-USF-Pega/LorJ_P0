@@ -34,11 +34,11 @@ public class PokemonService
 		if(index < currentIndex)
 		{
 			Pokemon p = localTeam[index];
-			for(int i = --currentIndex; i > index; i--)
+			for(int i = index; i < currentIndex; i++)
 			{
-				localTeam[i - 1] = localTeam[i];
+				localTeam[i] = localTeam[i + 1];
 			}
-			localTeam[index] = null;
+			localTeam[--currentIndex] = null;
 			return p;
 		}
 		else
@@ -69,7 +69,7 @@ public class PokemonService
 			{
 				if(p != null)
 				{
-					fw.write(p.exportSmogon());
+					fw.write("\n" + p.exportSmogon() + "\n");
 				}
 			}
 			fw.flush();

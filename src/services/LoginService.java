@@ -24,7 +24,6 @@ public class LoginService
 			PreparedStatement login = cm.getConnection().prepareStatement("SELECT * FROM trainer_table WHERE UPPER(trainer_name)=UPPER(?) and t_password=?");
 			login.setString(1, name);
 			login.setString(2, pass);
-
 			ResultSet rs = login.executeQuery();
 			if (rs.next())
 			{

@@ -20,25 +20,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6cb8f9fc-ee95-4861-976b-a45ff7d29cd7" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/dao/ITrainerRepo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/TrainerRepoDB.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Driver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Driver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/IPokemonRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/IPokemonRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/PokemonRepoDB.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PokemonRepoDB.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Trainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Trainer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/services/PokemonFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/PokemonFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ui/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/BLUE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/RED.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/services/PokemonService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/services/PokemonService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ui/MenuConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ui/MenuConsole.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Driver.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Driver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/IPokemonRepo.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/IPokemonRepo.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/dao/PokemonRepoDB.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/dao/PokemonRepoDB.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/models/Trainer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/models/Trainer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/services/PokemonFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/PokemonFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/test/Tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/test/Tests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/ui/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ui/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/BLUE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/RED.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/LoginService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/LoginService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/services/PokemonService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/services/PokemonService.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/ui/MenuConsole.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/ui/MenuConsole.class" afterDir="false" />
     </list>
+    <list id="b96e066d-f7c0-4d4b-837b-0515cd418232" name="Unit Tests" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,6 +56,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -106,6 +101,7 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="6cb8f9fc-ee95-4861-976b-a45ff7d29cd7" name="Default Changelist" comment="" />
+      <changelist id="b96e066d-f7c0-4d4b-837b-0515cd418232" name="Unit Tests" comment="" />
       <created>1591380389023</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -118,7 +114,21 @@
       <option name="project" value="LOCAL" />
       <updated>1592176970563</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Unit Tests">
+      <created>1592181333769</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1592181333769</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Trainer Registration, Bill Implementation, Release Pokemon">
+      <created>1592181400379</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1592181400379</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,10 +141,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Unit Tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Unit Tests" />
+    <MESSAGE value="Trainer Registration, Bill Implementation, Release Pokemon" />
+    <option name="LAST_COMMIT_MESSAGE" value="Trainer Registration, Bill Implementation, Release Pokemon" />
   </component>
   <component name="WindowStateProjectService">
     <state x="535" y="122" key="#Auto_Import" timestamp="1591807385652">
@@ -161,22 +173,22 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="549" y="172" key="FileChooserDialogImpl/0.0.1536.834@0.0.1536.834" timestamp="1592168669475" />
-    <state width="1493" height="192" key="GridCell.Tab.0.bottom" timestamp="1592180965312">
+    <state width="1493" height="192" key="GridCell.Tab.0.bottom" timestamp="1592339043601">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1592180965312" />
-    <state width="1493" height="192" key="GridCell.Tab.0.center" timestamp="1592180965312">
+    <state width="1493" height="192" key="GridCell.Tab.0.bottom/0.0.1536.834@0.0.1536.834" timestamp="1592339043601" />
+    <state width="1493" height="192" key="GridCell.Tab.0.center" timestamp="1592339043601">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1592180965312" />
-    <state width="1493" height="192" key="GridCell.Tab.0.left" timestamp="1592180965312">
+    <state width="1493" height="192" key="GridCell.Tab.0.center/0.0.1536.834@0.0.1536.834" timestamp="1592339043601" />
+    <state width="1493" height="192" key="GridCell.Tab.0.left" timestamp="1592339043601">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1592180965312" />
-    <state width="1493" height="192" key="GridCell.Tab.0.right" timestamp="1592180965312">
+    <state width="1493" height="192" key="GridCell.Tab.0.left/0.0.1536.834@0.0.1536.834" timestamp="1592339043601" />
+    <state width="1493" height="192" key="GridCell.Tab.0.right" timestamp="1592339043601">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
-    <state width="1493" height="192" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1592180965312" />
+    <state width="1493" height="192" key="GridCell.Tab.0.right/0.0.1536.834@0.0.1536.834" timestamp="1592339043601" />
     <state width="1493" height="265" key="GridCell.Tab.1.bottom" timestamp="1592005570402">
       <screen x="0" y="0" width="1536" height="834" />
     </state>
@@ -201,6 +213,10 @@
       <screen x="0" y="0" width="1536" height="834" />
     </state>
     <state x="277" y="62" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1591993850968" />
+    <state x="618" y="332" key="VCS.ChangelistChooser" timestamp="1592181353714">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="618" y="332" key="VCS.ChangelistChooser/0.0.1536.834@0.0.1536.834" timestamp="1592181353714" />
     <state x="209" y="38" key="new project wizard" timestamp="1591388262666">
       <screen x="0" y="0" width="1536" height="834" />
     </state>

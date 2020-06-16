@@ -187,7 +187,7 @@ public class MenuConsole implements Menu
 		int input = 0;
 		while(input != 5)
 		{
-			System.out.println("====================\n[1] VIEW ALL POK" + '\u00C9' + "MON\n[2] REGISTER TRAINER\n[3] REMOVE TRAINER\n[4] VIEW TRAINERS\n[5] LOG OFF");
+			System.out.println("====================\n[1] VIEW ALL POK" + '\u00E9' + "MON\n[2] REGISTER TRAINER\n[3] REMOVE TRAINER\n[4] VIEW TRAINERS\n[5] LOG OFF");
 			try
 			{
 				input = scan.nextInt();
